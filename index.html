@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/sample.css">
+    <title>じゃんけん</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>じゃんけん</h1>
+    </header>
+
+    <main>
+        <ul>
+            <li id="gu_btn">グー</li>
+            <li id="cho_btn">チョキ</li>
+            <li id="par_btn">パー</li>
+        </ul>
+
+        <div class="text-center">コンピュータの出した手は？「<span id="pc_hands">なに？</span>」</div>
+        <div id="judgment">勝ち</div>
+    </main>
+
+    <footer></footer>
+<script>
+    $(document).ready(function () {
+        // グーがクリックされたとき
+        $("#gu_btn").on("click", function () {
+            $("li").removeClass("blue-selected red-selected green-selected"); // すべての色をリセット
+            $(this).addClass("blue-selected"); // グーに青色を付ける
+            playGame(1); // グーを選択したことを伝える
+        });
+
+        // チョキがクリックされたとき
+        $("#cho_btn").on("click", function () {
+            $("li").removeClass("blue-selected red-selected green-selected"); // すべての色をリセット
+            $(this).addClass("red-selected"); // チョキに赤色を付ける
+            playGame(2); // チョキを選択したことを伝える
+        });
+
+        // パーがクリックされたとき
+        $("#par_btn").on("click", function () {
+            $("li").removeClass("blue-selected red-selected green-selected"); // すべての色をリセット
+            $(this).addClass("green-selected"); // パーに緑色を付ける
+            playGame(3); // パーを選択したことを伝える
+        });
+
+        function playGame(playerChoice) {
+            // 1.乱数(1～3)
+            const r = Math.ceil(Math.random() * 3);
+            let pcChoice = "";
+            let judgment = "";
+
+            if (r === 1) {
+                pcChoice = "グー✊";
+                judgment = (playerChoice === 1) ? "あいこ😮‍💨" : (playerChoice === 2) ? "負け😭" : "勝ち😆";
+            } else if (r === 2) {
+                pcChoice = "チョキ✌️";
+                judgment = (playerChoice === 1) ? "勝ち😆" : (playerChoice === 2) ? "あいこ😮‍💨" : "負け😭";
+            } else {
+                pcChoice = "パー🖐️";
+                judgment = (playerChoice === 1) ? "負け😭" : (playerChoice === 2) ? "勝ち😆" : "あいこ😮‍💨";
+            }
+
+            // 2.結果を表示
+            $("#pc_hands").html(pcChoice);
+            $("#judgment").html(judgment);
+        }
+    });
+</script>   
+</body>
+
+</html>

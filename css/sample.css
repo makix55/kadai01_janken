@@ -1,0 +1,75 @@
+body{
+    margin:0;
+    padding:0;
+    text-align:left;
+    font-size: 32px;
+}
+header{
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    color: rgb(255, 136, 0);
+    font-family: fantasy;
+}
+main{
+    border-bottom:1px solid #ccc;
+}
+footer{
+    background-color: #fff;
+    border-bottom:1px solid #ccc;
+    text-align: center;
+}
+p{
+    font-size:200%;
+    text-align: center;
+    border-bottom:1px solid #fff;
+    height:200px;
+}
+ul{
+    padding: 0;
+    border-top: 1px solid #000000;
+    display:table;  /* 定義 */
+    table-layout: fixed;
+    width:100%;
+    text-align: center;
+}
+li{
+    list-style-type:none;
+    border: 1px solid #666;
+    background-color: #FFF;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+    transition: background-color 0.3s;
+        /* アニメーション効果を追加 */
+}
+li:hover {
+    background-color: #ccc;
+    /* ホバー時の色 */
+}
+
+/* 選択された色 */
+.blue-selected {
+    background-color: blue;
+    color: #fff;
+}
+
+.red-selected {
+    background-color: red;
+    color: #fff;
+}
+
+.green-selected {
+    background-color: rgba(17, 222, 171, 0.962);
+    color: #fff;
+}
+
+ .text-center {
+    text-align: center;
+    font-size: 32px ;
+ }
+
+ #judgment {
+    text-align: center;
+    font-size: 40px;
+    margin: 20px 0 ;
+ }
